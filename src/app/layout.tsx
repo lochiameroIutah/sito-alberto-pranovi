@@ -18,11 +18,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Alberto Pranovi — Product Designer",
   description:
-    "Product Designer at Monde @LVMH. Accessories design, 3D modeling, rendering & visual identity.",
+    "Product Designer at Monde / LVMH. Accessories design, 3D modeling, rendering & visual identity. Based in Padua, Italy.",
   openGraph: {
     title: "Alberto Pranovi — Product Designer",
     description:
-      "Product Designer at Monde @LVMH. Accessories design, 3D modeling, rendering & visual identity.",
+      "Product Designer at Monde / LVMH. Accessories design, 3D modeling, rendering & visual identity.",
     type: "website",
   },
 };
@@ -34,13 +34,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans`}>
         <SmoothScroll />
         <CustomCursor />
         <Navbar />
-        <div className="noise" />
+        <div className="grain" />
         {children}
       </body>
     </html>

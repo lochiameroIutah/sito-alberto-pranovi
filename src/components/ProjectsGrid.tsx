@@ -1,100 +1,59 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-
-const projects = [
-  {
-    slug: "vnm-glasses",
-    title: "VNM Glasses",
-    category: "Personal Project",
-    year: "2024",
-    image: "/projects/vnm-glasses/hero.jpg",
-    description: "Futuristic biomechanical eyewear concept",
-  },
-  {
-    slug: "gallery",
-    title: "Accessories Gallery",
-    category: "Product Design",
-    year: "2022–2024",
-    image: "/projects/gallery/hero.jpg",
-    description: "Metal accessories with industrialization focus",
-  },
-  {
-    slug: "rendering",
-    title: "3D Rendering",
-    category: "3D / CGI",
-    year: "2020–2024",
-    image: "/projects/rendering/hero.jpg",
-    description: "Product visualization & concept renders",
-  },
-];
+import { projects } from "@/lib/projects";
+import { useRevealChildren } from "@/hooks/useReveal";
 
 export function ProjectsGrid() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return;
-
-    const cards = el.querySelectorAll(".project-item");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            (entry.target as HTMLElement).style.opacity = "1";
-            (entry.target as HTMLElement).style.transform = "translateY(0)";
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    cards.forEach((card) => observer.observe(card));
-    return () => observer.disconnect();
-  }, []);
+  const ref = useRevealChildren();
 
   return (
-    <section id="work" ref={sectionRef} className="py-32 px-6 md:px-12 lg:px-24">
-      <div className="flex items-baseline justify-between mb-16">
-        <h2 className="text-xs tracking-[0.2em] uppercase text-[#666] font-light">
+    <section id="work" ref={ref} className="py-20 md:py-32 px-5 md:px-10">
+      <div className="flex items-baseline justify-between mb-12 md:mb-20">
+        <h2 className="reveal-up text-[11px] tracking-[0.25em] uppercase text-muted font-light">
           Selected Work
         </h2>
-        <span className="text-xs tracking-[0.15em] text-[#666] font-light">
-          ({projects.length})
+        <span className="reveal-up text-[11px] tracking-[0.2em] text-dim font-light">
+          ({String(projects.length).padStart(2, "0")})
         </span>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-        {projects.map((project, i) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+        {projects.map((p, i) => (
           <Link
-            key={project.slug}
-            href={`/project/${project.slug}`}
-            className="project-item opacity-0 translate-y-12 transition-all duration-[1s] ease-[cubic-bezier(0.16,1,0.3,1)]"
-            style={{ transitionDelay: `${i * 150}ms` }}
+            key={p.slug}
+            href={`/project/${p.slug}`}
+            className={`reveal-up group block ${i === 0 ? "md:col-span-2" : ""}`}
+            style={{ transitionDelay: `${i * 100}ms` }}
           >
-            <div className="project-card aspect-[4/3] relative bg-[#111] rounded-sm overflow-hidden group">
+            <div
+              className={`img-wrap relative bg-[#0a0a0a] rounded-[2px] overflow-hidden ${
+                i === 0 ? "aspect-[21/9]" : "aspect-[4/3]"
+              }`}
+            >
               <Image
-                src={project.image}
-                alt={project.title}
+                src={p.heroImage}
+                alt={p.title}
                 fill
                 className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes={i === 0 ? "100vw" : "(max-width:768px)100vw,50vw"}
               />
-              <div className="absolute inset-0 z-10 flex flex-col justify-end p-6 md:p-8">
+              <div className="absolute inset-0 z-10 flex flex-col justify-end p-5 md:p-8">
                 <div className="flex items-end justify-between">
                   <div>
-                    <p className="text-xs tracking-[0.15em] uppercase text-[#999] mb-2 font-light">
-                      {project.category}
+                    <p className="text-[10px] tracking-[0.2em] uppercase text-white/50 mb-1.5 font-light">
+                      {p.category}
                     </p>
-                    <h3 className="text-2xl md:text-3xl font-light tracking-[-0.02em]">
-                      {project.title}
+                    <h3 className="text-lg md:text-2xl lg:text-3xl font-extralight tracking-[-0.02em]">
+                      {p.title}
                     </h3>
+                    <p className="text-xs md:text-sm font-extralight text-white/60 mt-1 hidden md:block">
+                      {p.subtitle}
+                    </p>
                   </div>
-                  <span className="text-xs tracking-[0.15em] text-[#999] font-light">
-                    {project.year}
+                  <span className="text-[10px] tracking-[0.2em] text-white/40 font-light">
+                    {p.year}
                   </span>
                 </div>
               </div>

@@ -1,6 +1,6 @@
 import { Hero } from "@/components/Hero";
-import { ProjectsGrid } from "@/components/ProjectsGrid";
 import { Marquee } from "@/components/Marquee";
+import { ProjectsGrid } from "@/components/ProjectsGrid";
 import { About } from "@/components/About";
 import { Footer } from "@/components/Footer";
 
