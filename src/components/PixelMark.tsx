@@ -25,8 +25,10 @@ export function PixelMark({
   inverted = true,
   className = "",
 }: PixelMarkProps) {
+  // When inverted (default), use CSS variables that auto-switch with color scheme.
+  // Non-inverted keeps hardcoded values for special light-bg contexts.
   const d = inverted
-    ? { darkest: "#f0f0f0", dark: "#aaa", mid: "#777", light: "#444" }
+    ? { darkest: "var(--mark-darkest)", dark: "var(--mark-dark)", mid: "var(--mark-mid)", light: "var(--mark-light)" }
     : { darkest: "#1c1c1c", dark: "#555", mid: "#888", light: "#bbb" };
 
   if (variant === "gradient") {
@@ -42,8 +44,8 @@ export function PixelMark({
       >
         <defs>
           <linearGradient id="gbar" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor={d.light} />
-            <stop offset="100%" stopColor={d.darkest} />
+            <stop offset="0%" style={{ stopColor: d.light }} />
+            <stop offset="100%" style={{ stopColor: d.darkest }} />
           </linearGradient>
         </defs>
         <rect x="0" y="0" width="80" height="5" fill="url(#gbar)" />
@@ -71,10 +73,10 @@ export function PixelMark({
         aria-hidden
       >
         {shades.map((c, i) => (
-          <rect key={`r1-${i}`} x={i * step} y={0} width={s} height={s} fill={c} />
+          <rect key={`r1-${i}`} x={i * step} y={0} width={s} height={s} style={{ fill: c }} />
         ))}
         {shades2.map((c, i) => (
-          <rect key={`r2-${i}`} x={i * step + (s + g) / 2} y={step} width={s} height={s} fill={c} />
+          <rect key={`r2-${i}`} x={i * step + (s + g) / 2} y={step} width={s} height={s} style={{ fill: c }} />
         ))}
       </svg>
     );
@@ -85,9 +87,9 @@ export function PixelMark({
     // Matches "01 Gallery" mark from PDF
     return (
       <svg width="18" height="16" viewBox="0 0 18 16" fill="none" className={className} aria-hidden>
-        <rect x="0" y="2" width="9" height="9" fill={d.darkest} />
-        <rect x="11" y="0" width="7" height="7" fill={d.mid} />
-        <rect x="11" y="9" width="7" height="7" fill={d.dark} />
+        <rect x="0" y="2" width="9" height="9" style={{ fill: d.darkest }} />
+        <rect x="11" y="0" width="7" height="7" style={{ fill: d.mid }} />
+        <rect x="11" y="9" width="7" height="7" style={{ fill: d.dark }} />
       </svg>
     );
   }
@@ -98,11 +100,11 @@ export function PixelMark({
   return (
     <svg width="20" height="18" viewBox="0 0 20 18" fill="none" className={className} aria-hidden>
       {/* Row 1: big dark square + small medium square */}
-      <rect x="0" y="0" width="11" height="11" fill={d.darkest} />
-      <rect x="13" y="0" width="7" height="7" fill={d.mid} />
+      <rect x="0" y="0" width="11" height="11" style={{ fill: d.darkest }} />
+      <rect x="13" y="0" width="7" height="7" style={{ fill: d.mid }} />
       {/* Row 2: two smaller squares offset */}
-      <rect x="4" y="13" width="7" height="5" fill={d.dark} />
-      <rect x="13" y="9" width="7" height="9" fill={d.light} />
+      <rect x="4" y="13" width="7" height="5" style={{ fill: d.dark }} />
+      <rect x="13" y="9" width="7" height="9" style={{ fill: d.light }} />
     </svg>
   );
 }

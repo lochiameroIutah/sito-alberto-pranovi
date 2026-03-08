@@ -1,12 +1,81 @@
 @import "tailwindcss";
 
 :root {
+  color-scheme: light dark;
+
   --bg: #050505;
   --fg: #f0f0f0;
   --accent: #e0e0e0;
   --muted: #585858;
   --dim: #2a2a2a;
   --border: #141414;
+
+  /* Semantic */
+  --overlay: #ffffff;
+  --surface: #0a0a0a;
+  --surface-deep: #0c0c0c;
+  --vignette: #000000;
+
+  /* Cursor */
+  --cursor-fill: #ffffff;
+  --cursor-ring: rgba(255,255,255,0.3);
+  --cursor-ring-hover: rgba(255,255,255,0.7);
+
+  /* Selection */
+  --selection-bg: rgba(255,255,255,0.1);
+  --selection-fg: #ffffff;
+
+  /* Hero */
+  --hero-brightness: 0.28;
+  --hero-saturate: 0.55;
+
+  /* Vignette gradient stops */
+  --vignette-strong: rgba(0,0,0,0.62);
+  --vignette-mid: rgba(0,0,0,0.18);
+
+  /* PixelMark */
+  --mark-darkest: #f0f0f0;
+  --mark-dark: #aaa;
+  --mark-mid: #777;
+  --mark-light: #444;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f8f7f5;
+    --fg: #1a1a1a;
+    --accent: #2a2a2a;
+    --muted: #8a8a8a;
+    --dim: #c0bdb8;
+    --border: #e5e3df;
+
+    --overlay: #000000;
+    --surface: #efedea;
+    --surface-deep: #e8e6e2;
+    --vignette: #f8f7f5;
+
+    --cursor-fill: #1a1a1a;
+    --cursor-ring: rgba(0,0,0,0.2);
+    --cursor-ring-hover: rgba(0,0,0,0.5);
+
+    --selection-bg: rgba(0,0,0,0.08);
+    --selection-fg: #000000;
+
+    --hero-brightness: 0.88;
+    --hero-saturate: 0.7;
+
+    --vignette-strong: rgba(248,247,245,0.62);
+    --vignette-mid: rgba(248,247,245,0.18);
+
+    --mark-darkest: #1c1c1c;
+    --mark-dark: #555;
+    --mark-mid: #888;
+    --mark-light: #bbb;
+  }
+
+  .grain::after {
+    opacity: 0.035;
+  }
 }
 
 @theme inline {
@@ -16,6 +85,10 @@
   --color-muted: var(--muted);
   --color-dim: var(--dim);
   --color-border: var(--border);
+  --color-overlay: var(--overlay);
+  --color-surface: var(--surface);
+  --color-surface-deep: var(--surface-deep);
+  --color-vignette: var(--vignette);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -51,8 +124,8 @@ body {
 }
 
 ::selection {
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  background: var(--selection-bg);
+  color: var(--selection-fg);
 }
 
 /* ═══ CURSOR ═══ */
@@ -63,7 +136,7 @@ body {
 .cursor-dot {
   width: 5px;
   height: 5px;
-  background: #fff;
+  background: var(--cursor-fill);
   border-radius: 50%;
   position: fixed;
   pointer-events: none;
@@ -75,7 +148,7 @@ body {
 .cursor-ring {
   width: 32px;
   height: 32px;
-  border: 1px solid rgba(255,255,255,0.3);
+  border: 1px solid var(--cursor-ring);
   border-radius: 50%;
   position: fixed;
   pointer-events: none;
@@ -90,7 +163,7 @@ body {
 .cursor-ring.hovering {
   width: 56px;
   height: 56px;
-  border-color: rgba(255,255,255,0.7);
+  border-color: var(--cursor-ring-hover);
 }
 
 /* ═══ NOISE ═══ */
@@ -170,8 +243,8 @@ body {
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(0,0,0,0.62) 0%,
-    rgba(0,0,0,0.18) 38%,
+    var(--vignette-strong) 0%,
+    var(--vignette-mid) 38%,
     transparent 65%
   );
   transition: opacity 0.5s ease;

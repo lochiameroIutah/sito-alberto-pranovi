@@ -42,14 +42,14 @@ export function Navbar() {
       <header
         className={`fixed top-0 inset-x-0 z-50 flex items-center justify-between h-16 px-5 md:px-10 transition-all duration-500 ${
           showBg
-            ? "backdrop-blur-xl bg-[#050505]/92 border-b border-white/[0.05]"
+            ? "backdrop-blur-xl bg-bg/92 border-b border-overlay/[0.05]"
             : ""
         }`}
       >
         {/* Brand */}
         <Link href="/" className="flex items-center gap-3 group">
           <PixelMark variant="ap" inverted className="opacity-70 group-hover:opacity-100 transition-opacity" />
-          <span className="text-[12px] tracking-[0.22em] uppercase font-light text-white/55 group-hover:text-white/90 transition-colors">
+          <span className="text-[12px] tracking-[0.22em] uppercase font-light text-overlay/55 group-hover:text-overlay/90 transition-colors">
             A. Pranovi
           </span>
         </Link>
@@ -62,8 +62,8 @@ export function Navbar() {
               href={l.href}
               className={`text-[12px] tracking-[0.16em] uppercase font-light transition-colors duration-200 ${
                 isActive(l.href)
-                  ? "text-white"
-                  : "text-white/45 hover:text-white/85"
+                  ? "text-fg"
+                  : "text-overlay/45 hover:text-overlay/85"
               }`}
               data-hover
             >
@@ -78,8 +78,8 @@ export function Navbar() {
           className="md:hidden w-8 h-8 flex flex-col items-end justify-center gap-[6px]"
           aria-label={open ? "Chiudi menu" : "Apri menu"}
         >
-          <span className={`block h-px bg-white/75 transition-all duration-300 ${open ? "w-6 rotate-45 translate-y-[3.5px]" : "w-6"}`} />
-          <span className={`block h-px bg-white/75 transition-all duration-300 ${open ? "w-6 -rotate-45 -translate-y-[3.5px]" : "w-4"}`} />
+          <span className={`block h-px bg-overlay/75 transition-all duration-300 ${open ? "w-6 rotate-45 translate-y-[3.5px]" : "w-6"}`} />
+          <span className={`block h-px bg-overlay/75 transition-all duration-300 ${open ? "w-6 -rotate-45 -translate-y-[3.5px]" : "w-4"}`} />
         </button>
       </header>
 
@@ -100,7 +100,7 @@ export function Navbar() {
               href={l.href}
               onClick={() => setOpen(false)}
               className={`text-[clamp(2.2rem,9vw,4.5rem)] font-extralight tracking-[-0.025em] transition-all duration-300 ${
-                isActive(l.href) ? "text-white" : "text-white/55 hover:text-white/90"
+                isActive(l.href) ? "text-fg" : "text-overlay/55 hover:text-overlay/90"
               }`}
               style={{ transitionDelay: open ? `${i * 65}ms` : "0ms" }}
             >
@@ -108,7 +108,7 @@ export function Navbar() {
             </Link>
           ))}
         </nav>
-        <p className="absolute bottom-8 text-[10px] tracking-[0.28em] uppercase text-white/15 font-light">
+        <p className="absolute bottom-8 text-[10px] tracking-[0.28em] uppercase text-overlay/15 font-light">
           Alberto Pranovi — Padua, 1996
         </p>
       </div>

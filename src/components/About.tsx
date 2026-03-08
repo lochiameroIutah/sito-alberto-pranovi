@@ -18,7 +18,7 @@ export function About() {
         <div className="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-16">
           {/* Photo */}
           <div className="reveal-up md:col-span-2">
-            <div className="relative aspect-[3/4] max-w-[260px] bg-[#0c0c0c] rounded-[2px] overflow-hidden">
+            <div className="relative aspect-[3/4] max-w-[260px] bg-surface-deep rounded-[2px] overflow-hidden">
               <Image
                 src="/alberto-profile.png"
                 alt="Alberto Pranovi"
