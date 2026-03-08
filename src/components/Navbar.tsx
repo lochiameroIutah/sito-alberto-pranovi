@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { PixelMark } from "./PixelMark";
+import { ScrambleHover } from "./ScrambleHover";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -66,7 +67,7 @@ export function Navbar() {
               }`}
               data-hover
             >
-              {l.label}
+              <ScrambleHover text={l.label} speed={22} />
             </Link>
           ))}
         </nav>
