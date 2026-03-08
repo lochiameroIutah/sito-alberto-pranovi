@@ -88,15 +88,15 @@ export function WorkShowcase() {
           </div>
         ))}
         {/* Subtle bottom vignette on the preview */}
-        <div className="absolute inset-0 bg-gradient-to-t from-vignette/30 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none" />
       </div>
 
       {/* ── Section header ─────────────────────────────────────────────── */}
       <div className="flex items-baseline justify-between mb-12 md:mb-16">
-        <h1 className="reveal-up text-[11px] tracking-[0.25em] uppercase text-overlay/35 font-light">
+        <h1 className="reveal-up text-[11px] tracking-[0.25em] uppercase text-white/35 font-light">
           Selected Work
         </h1>
-        <span className="reveal-up text-[11px] tracking-[0.2em] text-overlay/20 font-light">
+        <span className="reveal-up text-[11px] tracking-[0.2em] text-white/20 font-light">
           {String(projects.length).padStart(2, "0")}
         </span>
       </div>
@@ -107,7 +107,7 @@ export function WorkShowcase() {
           <Link
             key={p.slug}
             href={`/project/${p.slug}`}
-            className="reveal-up group block border-t border-overlay/[0.07]"
+            className="reveal-up group block border-t border-white/[0.07]"
             style={{ transitionDelay: `${i * 80}ms` }}
             onMouseEnter={() => setHoveredIdx(i)}
             onMouseLeave={() => setHoveredIdx(null)}
@@ -116,12 +116,12 @@ export function WorkShowcase() {
             <div className="relative flex items-center gap-6 md:gap-10 py-7 md:py-9">
               {/* Subtle hover bg */}
               <div
-                className="absolute inset-0 -mx-5 md:-mx-10 bg-overlay/[0.022] transition-opacity duration-300"
+                className="absolute inset-0 -mx-5 md:-mx-10 bg-white/[0.022] transition-opacity duration-300"
                 style={{ opacity: hoveredIdx === i ? 1 : 0 }}
               />
 
               {/* Index */}
-              <span className="relative text-[11px] tracking-[0.2em] text-overlay/20 font-light w-8 flex-shrink-0 tabular-nums">
+              <span className="relative text-[11px] tracking-[0.2em] text-white/20 font-light w-8 flex-shrink-0 tabular-nums">
                 {String(i + 1).padStart(2, "0")}
               </span>
 
@@ -140,10 +140,10 @@ export function WorkShowcase() {
 
               {/* Meta — desktop */}
               <div className="relative hidden md:flex items-center gap-10 flex-shrink-0">
-                <span className="text-[11px] tracking-[0.2em] uppercase text-overlay/30 font-light">
+                <span className="text-[11px] tracking-[0.2em] uppercase text-white/30 font-light">
                   {p.category}
                 </span>
-                <span className="text-[11px] tracking-[0.15em] text-overlay/18 font-light tabular-nums">
+                <span className="text-[11px] tracking-[0.15em] text-white/18 font-light tabular-nums">
                   {p.year}
                 </span>
               </div>
@@ -174,7 +174,7 @@ export function WorkShowcase() {
 
             {/* Hover underline */}
             <div
-              className="h-px bg-overlay/12 origin-left transition-transform duration-500"
+              className="h-px bg-white/12 origin-left transition-transform duration-500"
               style={{
                 transform: `scaleX(${hoveredIdx === i ? 1 : 0})`,
               }}
@@ -183,7 +183,7 @@ export function WorkShowcase() {
         ))}
 
         {/* Closing border */}
-        <div className="border-t border-overlay/[0.07]" />
+        <div className="border-t border-white/[0.07]" />
       </div>
     </section>
   );

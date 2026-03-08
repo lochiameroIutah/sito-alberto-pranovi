@@ -17,7 +17,7 @@ export function Marquee() {
   const doubled = [...items, ...items];
 
   return (
-    <div className="py-5 md:py-6 border-y border-overlay/[0.04] overflow-hidden">
+    <div className="py-5 md:py-6 border-y border-white/[0.04] overflow-hidden">
       <div className="marquee-track">
         {doubled.map((item, i) => (
           <span

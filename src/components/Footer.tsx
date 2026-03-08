@@ -34,7 +34,7 @@ export function Footer() {
         </a>
 
         <div
-          className="reveal-up flex flex-col md:flex-row items-start md:items-end justify-between mt-24 md:mt-36 pt-7 border-t border-overlay/[0.04]"
+          className="reveal-up flex flex-col md:flex-row items-start md:items-end justify-between mt-24 md:mt-36 pt-7 border-t border-white/[0.04]"
         >
           <div className="flex gap-8 text-[11px] tracking-[0.22em] uppercase font-light text-dim">
             <a

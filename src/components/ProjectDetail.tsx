@@ -22,7 +22,7 @@ export function ProjectDetail({ project }: { project: Project }) {
   return (
     <main ref={ref} className="pt-16">
       {/* ── Header ── */}
-      <section className="min-h-[55svh] flex flex-col justify-end px-5 md:px-10 lg:px-16 pb-12 md:pb-16 border-b border-overlay/[0.04]">
+      <section className="min-h-[55svh] flex flex-col justify-end px-5 md:px-10 lg:px-16 pb-12 md:pb-16 border-b border-white/[0.04]">
         <Link
           href="/#work"
           className="reveal-up inline-flex items-center gap-2 text-[11px] tracking-[0.2em] uppercase text-dim hover:text-fg transition-colors font-light mb-14 md:mb-20"
@@ -69,7 +69,7 @@ export function ProjectDetail({ project }: { project: Project }) {
                 </p>
               )}
               <div
-                className={`relative bg-surface rounded-[2px] overflow-hidden ${
+                className={`relative bg-[#0a0a0a] rounded-[2px] overflow-hidden ${
                   img.span === "full" ? "aspect-[16/9]" : "aspect-[4/3]"
                 }`}
               >
@@ -90,7 +90,7 @@ export function ProjectDetail({ project }: { project: Project }) {
       {/* ── Next project ── */}
       <Link
         href={`/project/${nextProject.slug}`}
-        className="group block border-t border-overlay/[0.04] px-5 md:px-10 lg:px-16 py-20 md:py-32"
+        className="group block border-t border-white/[0.04] px-5 md:px-10 lg:px-16 py-20 md:py-32"
         data-hover
       >
         <div className="reveal-up flex flex-col md:flex-row items-start md:items-end justify-between gap-5">

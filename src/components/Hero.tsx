@@ -61,7 +61,7 @@ export function Hero() {
             className="absolute inset-0"
             style={{
               opacity:    i === activeIdx ? 1 : 0,
-              filter:     `brightness(var(--hero-brightness)) saturate(var(--hero-saturate))`,
+              filter:     `brightness(0.28) saturate(0.55)`,
               transform:  `translateX(${i === activeIdx ? "0%" : i === prevIdx ? "-4%" : "4%"}) scale(${i === activeIdx ? 1 : 1.03})`,
               transition: "opacity 1.2s cubic-bezier(0.16,1,0.3,1), transform 1.6s cubic-bezier(0.16,1,0.3,1)",
             }}
@@ -121,7 +121,7 @@ export function Hero() {
 
       {/* ── Bottom bar ────────────────────────────────────────────────────── */}
       <div
-        className="hero-sub relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pt-7 border-t border-overlay/[0.06]"
+        className="hero-sub relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pt-7 border-t border-white/[0.06]"
         style={{
           opacity: 0,
           transform: "translateY(12px)",
@@ -142,8 +142,8 @@ export function Hero() {
                 onClick={() => { setPrevIdx(activeIdx); setActiveIdx(i); }}
                 className={`block rounded-full transition-all duration-500 ${
                   i === activeIdx
-                    ? "w-4 h-1 bg-overlay/60"
-                    : "w-1 h-1 bg-overlay/20 hover:bg-overlay/40"
+                    ? "w-4 h-1 bg-white/60"
+                    : "w-1 h-1 bg-white/20 hover:bg-white/40"
                 }`}
                 aria-label={`Show ${slideshowImages[i].label}`}
               />

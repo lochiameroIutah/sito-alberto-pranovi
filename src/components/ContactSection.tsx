@@ -15,7 +15,7 @@ export function ContactSection() {
       <div className="max-w-5xl mx-auto w-full flex flex-col flex-1 py-24 md:py-40">
 
         {/* Label */}
-        <p className="reveal-up text-[11px] tracking-[0.25em] uppercase text-overlay/35 font-light mb-16 md:mb-24">
+        <p className="reveal-up text-[11px] tracking-[0.25em] uppercase text-white/35 font-light mb-16 md:mb-24">
           Contact
         </p>
 
@@ -35,7 +35,7 @@ export function ContactSection() {
         <div className="reveal-up mt-5 md:mt-7">
           <a
             href="tel:+393463871076"
-            className="text-[clamp(1rem,2.2vw,2.4rem)] font-extralight text-overlay/45 hover:text-overlay/80 transition-colors"
+            className="text-[clamp(1rem,2.2vw,2.4rem)] font-extralight text-white/45 hover:text-white/80 transition-colors"
             data-hover
           >
             +39 346 387 1076
@@ -43,12 +43,12 @@ export function ContactSection() {
         </div>
 
         {/* Social row */}
-        <div className="reveal-up flex flex-wrap items-center gap-8 mt-16 md:mt-24 pt-8 border-t border-overlay/[0.05]">
+        <div className="reveal-up flex flex-wrap items-center gap-8 mt-16 md:mt-24 pt-8 border-t border-white/[0.05]">
           <a
             href="https://www.instagram.com/apranovic/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 text-[11px] tracking-[0.18em] uppercase text-overlay/35 hover:text-overlay/80 transition-colors font-light group"
+            className="inline-flex items-center gap-2.5 text-[11px] tracking-[0.18em] uppercase text-white/35 hover:text-white/80 transition-colors font-light group"
             data-hover
           >
             <span>Instagram</span>
@@ -57,13 +57,13 @@ export function ContactSection() {
             </svg>
           </a>
 
-          <span className="w-px h-3 bg-overlay/10" aria-hidden="true" />
+          <span className="w-px h-3 bg-white/10" aria-hidden="true" />
 
           <a
             href="https://www.linkedin.com/in/alberto-pranovi-132152162/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 text-[11px] tracking-[0.18em] uppercase text-overlay/35 hover:text-overlay/80 transition-colors font-light group"
+            className="inline-flex items-center gap-2.5 text-[11px] tracking-[0.18em] uppercase text-white/35 hover:text-white/80 transition-colors font-light group"
             data-hover
           >
             <span>LinkedIn</span>
@@ -72,11 +72,11 @@ export function ContactSection() {
             </svg>
           </a>
 
-          <span className="w-px h-3 bg-overlay/10" aria-hidden="true" />
+          <span className="w-px h-3 bg-white/10" aria-hidden="true" />
 
           <Link
             href="/cv"
-            className="inline-flex items-center gap-2.5 text-[11px] tracking-[0.18em] uppercase text-overlay/35 hover:text-overlay/80 transition-colors font-light group"
+            className="inline-flex items-center gap-2.5 text-[11px] tracking-[0.18em] uppercase text-white/35 hover:text-white/80 transition-colors font-light group"
             data-hover
           >
             <PixelMark variant="gallery" inverted className="opacity-40 group-hover:opacity-80 transition-opacity" />
@@ -90,7 +90,7 @@ export function ContactSection() {
         {/* Bottom bar */}
         <div className="mt-auto pt-12 md:pt-16 flex items-end justify-between">
           <PixelMark variant="ap" inverted className="opacity-10" />
-          <p className="text-[10px] tracking-[0.2em] text-overlay/15 font-light">
+          <p className="text-[10px] tracking-[0.2em] text-white/15 font-light">
             &copy; {new Date().getFullYear()} Alberto Pranovi — Padua, Italy
           </p>
         </div>
