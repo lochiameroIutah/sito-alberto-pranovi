@@ -21,15 +21,11 @@ export function Navbar() {
     return () => { document.body.style.overflow = ""; };
   }, [open]);
 
-  const mainLinks = [
+  const links = [
     { label: "Work",    href: "/work" },
     { label: "About",   href: "/about" },
     { label: "Contact", href: "/contact" },
     { label: "CV",      href: "/cv" },
-  ];
-  const versions = [
-    { label: "Editorial", href: "/v2" },
-    { label: "Brutalist", href: "/v3" },
   ];
 
   const isActive = (href: string) => pathname === href;
@@ -39,88 +35,71 @@ export function Navbar() {
       {/* h-16 = 64px */}
       <header
         className={`fixed top-0 inset-x-0 z-50 flex items-center justify-between h-16 px-5 md:px-10 transition-all duration-500 ${
-          scrolled ? "backdrop-blur-xl bg-[#050505]/88 border-b border-white/[0.04]" : ""
+          scrolled ? "backdrop-blur-xl bg-[#050505]/90 border-b border-white/[0.05]" : ""
         }`}
       >
+        {/* Brand */}
         <Link href="/" className="flex items-center gap-3 group">
-          <PixelMark variant="ap" inverted className="opacity-60 group-hover:opacity-100 transition-opacity" />
-          <span className="text-[11px] tracking-[0.28em] uppercase font-light text-muted group-hover:text-fg transition-colors">
+          <PixelMark variant="ap" inverted className="opacity-70 group-hover:opacity-100 transition-opacity" />
+          <span className="text-[12px] tracking-[0.22em] uppercase font-light text-white/55 group-hover:text-white/90 transition-colors">
             A. Pranovi
           </span>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-7">
-          {mainLinks.map((l) => (
+        {/* Desktop nav */}
+        <nav className="hidden md:flex items-center gap-8">
+          {links.map((l) => (
             <Link
               key={l.label}
               href={l.href}
-              className={`text-[11px] tracking-[0.2em] uppercase font-light transition-colors ${
-                isActive(l.href) ? "text-fg" : "text-muted hover:text-fg"
+              className={`text-[12px] tracking-[0.16em] uppercase font-light transition-colors duration-200 ${
+                isActive(l.href)
+                  ? "text-white"
+                  : "text-white/45 hover:text-white/85"
               }`}
               data-hover
             >
               {l.label}
             </Link>
           ))}
-          <span className="w-px h-3 bg-dim" />
-          {versions.map((v) => (
-            <Link
-              key={v.label}
-              href={v.href}
-              className={`text-[11px] tracking-[0.2em] uppercase font-light transition-colors ${
-                isActive(v.href) ? "text-fg" : "text-dim hover:text-fg"
-              }`}
-              data-hover
-            >
-              {v.label}
-            </Link>
-          ))}
         </nav>
 
+        {/* Hamburger */}
         <button
           onClick={() => setOpen(!open)}
           className="md:hidden w-8 h-8 flex flex-col items-end justify-center gap-[6px]"
           aria-label="Toggle menu"
         >
-          <span className={`block h-px bg-white/80 transition-all duration-300 ${open ? "w-6 rotate-45 translate-y-[3.5px]" : "w-6"}`} />
-          <span className={`block h-px bg-white/80 transition-all duration-300 ${open ? "w-6 -rotate-45 -translate-y-[3.5px]" : "w-4"}`} />
+          <span className={`block h-px bg-white/75 transition-all duration-300 ${open ? "w-6 rotate-45 translate-y-[3.5px]" : "w-6"}`} />
+          <span className={`block h-px bg-white/75 transition-all duration-300 ${open ? "w-6 -rotate-45 -translate-y-[3.5px]" : "w-4"}`} />
         </button>
       </header>
 
-      {/* Mobile fullscreen */}
+      {/* Mobile fullscreen overlay */}
       <div
         className={`fixed inset-0 z-40 bg-bg flex flex-col items-center justify-center transition-all duration-500 ${
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
-        <PixelMark variant="ap" inverted className="mb-14 opacity-25" />
-        <nav className="flex flex-col items-center gap-7">
-          {mainLinks.map((l, i) => (
+        <PixelMark variant="ap" inverted className="mb-16 opacity-20" />
+        <nav className="flex flex-col items-center gap-8">
+          {links.map((l, i) => (
             <Link
               key={l.label}
               href={l.href}
               onClick={() => setOpen(false)}
-              className={`text-[clamp(2rem,8vw,4rem)] font-extralight tracking-[-0.02em] hover:opacity-40 transition-all ${
-                isActive(l.href) ? "opacity-100" : "opacity-70"
+              className={`text-[clamp(2.2rem,9vw,4.5rem)] font-extralight tracking-[-0.025em] transition-all duration-300 ${
+                isActive(l.href) ? "text-white" : "text-white/55 hover:text-white/90"
               }`}
-              style={{ transitionDelay: open ? `${i * 70}ms` : "0ms" }}
+              style={{ transitionDelay: open ? `${i * 65}ms` : "0ms" }}
             >
               {l.label}
             </Link>
           ))}
-          <div className="w-8 h-px bg-dim my-5" />
-          <p className="text-[10px] tracking-[0.3em] uppercase text-dim mb-2">Style</p>
-          {versions.map((v) => (
-            <Link
-              key={v.label}
-              href={v.href}
-              onClick={() => setOpen(false)}
-              className="text-xl font-extralight tracking-[0.08em] text-muted hover:text-fg transition-colors"
-            >
-              {v.label}
-            </Link>
-          ))}
         </nav>
+        <p className="absolute bottom-8 text-[10px] tracking-[0.28em] uppercase text-white/15 font-light">
+          Alberto Pranovi — Padua, 1996
+        </p>
       </div>
     </>
   );
