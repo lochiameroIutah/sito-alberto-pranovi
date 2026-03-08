@@ -4,13 +4,27 @@ import Image from "next/image";
 import Link from "next/link";
 import { projects } from "@/lib/projects";
 import { useRevealChildren } from "@/hooks/useReveal";
+import { PixelMark } from "./PixelMark";
+
+// Each project gets its own pixel mark variant from Alberto's original PDF
+const projectMarks: Record<string, "gallery" | "gradient" | "checker" | "ap"> = {
+  "gallery":  "gallery",
+  "vnm-glasses": "gradient",
+  "flame-cap": "ap",
+  "rendering": "checker",
+};
 
 export function ProjectsGrid() {
   const ref = useRevealChildren();
 
   return (
-    <section id="work" ref={ref} className="py-20 md:py-32 px-5 md:px-10">
-      <div className="flex items-baseline justify-between mb-12 md:mb-20">
+    <section
+      id="work"
+      ref={ref}
+      className="py-32 md:py-52 px-5 md:px-10"
+      style={{ scrollMarginTop: "64px" }}
+    >
+      <div className="flex items-baseline justify-between mb-16 md:mb-28">
         <h2 className="reveal-up text-[11px] tracking-[0.25em] uppercase text-muted font-light">
           Selected Work
         </h2>
@@ -19,17 +33,19 @@ export function ProjectsGrid() {
         </span>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
         {projects.map((p, i) => (
           <Link
             key={p.slug}
             href={`/project/${p.slug}`}
             className={`reveal-up group block ${i === 0 ? "md:col-span-2" : ""}`}
-            style={{ transitionDelay: `${i * 100}ms` }}
+            style={{ transitionDelay: `${i * 90}ms` }}
+            data-hover
           >
+            {/* Image card */}
             <div
               className={`img-wrap relative bg-[#0a0a0a] rounded-[2px] overflow-hidden ${
-                i === 0 ? "aspect-[21/9]" : "aspect-[4/3]"
+                i === 0 ? "aspect-[16/7]" : "aspect-[4/3]"
               }`}
             >
               <Image
@@ -38,23 +54,35 @@ export function ProjectsGrid() {
                 fill
                 className="object-cover"
                 sizes={i === 0 ? "100vw" : "(max-width:768px)100vw,50vw"}
+                priority={i < 2}
               />
-              <div className="absolute inset-0 z-10 flex flex-col justify-end p-5 md:p-8">
-                <div className="flex items-end justify-between">
+
+              {/* Text — z-20 sits above ::after gradient pseudo-element */}
+              <div className="absolute inset-0 z-20 flex flex-col justify-end p-6 md:p-10">
+                <div className="flex items-end justify-between gap-4">
                   <div>
-                    <p className="text-[10px] tracking-[0.2em] uppercase text-white/50 mb-1.5 font-light">
+                    <p className="text-[10px] tracking-[0.22em] uppercase text-white/50 mb-2.5 font-light">
                       {p.category}
                     </p>
-                    <h3 className="text-lg md:text-2xl lg:text-3xl font-extralight tracking-[-0.02em]">
+                    <h3 className="text-xl md:text-2xl lg:text-[1.75rem] font-extralight tracking-[-0.02em] leading-tight">
                       {p.title}
                     </h3>
-                    <p className="text-xs md:text-sm font-extralight text-white/60 mt-1 hidden md:block">
+                    <p className="text-xs font-extralight text-white/45 mt-2 hidden md:block">
                       {p.subtitle}
                     </p>
                   </div>
-                  <span className="text-[10px] tracking-[0.2em] text-white/40 font-light">
-                    {p.year}
-                  </span>
+
+                  <div className="flex-shrink-0 flex flex-col items-end gap-3 pb-0.5">
+                    {/* Pixel mark — the signature brand element from Alberto's PDF */}
+                    <PixelMark
+                      variant={projectMarks[p.slug] ?? "ap"}
+                      inverted
+                      className="opacity-40 group-hover:opacity-80 transition-opacity duration-500"
+                    />
+                    <span className="text-[10px] tracking-[0.2em] text-white/30 font-light">
+                      {p.year}
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
