@@ -10,6 +10,8 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
+  const isHome = pathname === "/";
+
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", fn, { passive: true });
@@ -30,12 +32,17 @@ export function Navbar() {
 
   const isActive = (href: string) => pathname === href;
 
+  // On every page except home, always show the navbar background
+  const showBg = scrolled || !isHome;
+
   return (
     <>
       {/* h-16 = 64px */}
       <header
         className={`fixed top-0 inset-x-0 z-50 flex items-center justify-between h-16 px-5 md:px-10 transition-all duration-500 ${
-          scrolled ? "backdrop-blur-xl bg-[#050505]/90 border-b border-white/[0.05]" : ""
+          showBg
+            ? "backdrop-blur-xl bg-[#050505]/92 border-b border-white/[0.05]"
+            : ""
         }`}
       >
         {/* Brand */}
@@ -68,7 +75,7 @@ export function Navbar() {
         <button
           onClick={() => setOpen(!open)}
           className="md:hidden w-8 h-8 flex flex-col items-end justify-center gap-[6px]"
-          aria-label="Toggle menu"
+          aria-label={open ? "Chiudi menu" : "Apri menu"}
         >
           <span className={`block h-px bg-white/75 transition-all duration-300 ${open ? "w-6 rotate-45 translate-y-[3.5px]" : "w-6"}`} />
           <span className={`block h-px bg-white/75 transition-all duration-300 ${open ? "w-6 -rotate-45 -translate-y-[3.5px]" : "w-4"}`} />
@@ -77,6 +84,9 @@ export function Navbar() {
 
       {/* Mobile fullscreen overlay */}
       <div
+        role="dialog"
+        aria-modal="true"
+        aria-label="Navigazione"
         className={`fixed inset-0 z-40 bg-bg flex flex-col items-center justify-center transition-all duration-500 ${
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
