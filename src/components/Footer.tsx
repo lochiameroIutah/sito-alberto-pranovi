@@ -9,10 +9,8 @@ export function Footer() {
 
   return (
     <footer
-      id="contact"
       ref={ref}
       className="py-32 md:py-52 px-5 md:px-10"
-      style={{ scrollMarginTop: "64px" }}
     >
       <div className="max-w-5xl mx-auto">
         <p className="reveal-up text-[11px] tracking-[0.25em] uppercase text-muted font-light mb-12 md:mb-16">

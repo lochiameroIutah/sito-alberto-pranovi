@@ -9,12 +9,7 @@ export function About() {
   const ref = useRevealChildren();
 
   return (
-    <section
-      id="about"
-      ref={ref}
-      className="py-32 md:py-52 px-5 md:px-10 overflow-hidden"
-      style={{ scrollMarginTop: "64px" }}
-    >
+    <section ref={ref} className="py-32 md:py-52 px-5 md:px-10 overflow-hidden">
       <div className="max-w-5xl mx-auto">
         <p className="reveal-up text-[11px] tracking-[0.25em] uppercase text-muted font-light mb-14 md:mb-24">
           About
@@ -54,7 +49,7 @@ export function About() {
               developing metallic accessories and metal trims for luxury fashion houses.
             </p>
 
-            {/* Skills grid */}
+            {/* Skills */}
             <div className="grid grid-cols-2 gap-x-10 gap-y-10 mt-14 md:mt-16">
               {[
                 {
@@ -74,19 +69,13 @@ export function About() {
                   items: ["Product Design", "3D Modeling & Render", "Metal Trims Dev"],
                 },
               ].map((col, i) => (
-                <div
-                  key={col.label}
-                  className="reveal-up"
-                  style={{ transitionDelay: `${i * 60}ms` }}
-                >
+                <div key={col.label} className="reveal-up" style={{ transitionDelay: `${i * 60}ms` }}>
                   <h3 className="text-[10px] tracking-[0.28em] uppercase text-dim font-light mb-3.5">
                     {col.label}
                   </h3>
                   <ul className="space-y-2.5">
                     {col.items.map((item) => (
-                      <li key={item} className="text-xs font-light text-muted leading-relaxed">
-                        {item}
-                      </li>
+                      <li key={item} className="text-xs font-light text-muted leading-relaxed">{item}</li>
                     ))}
                   </ul>
                 </div>

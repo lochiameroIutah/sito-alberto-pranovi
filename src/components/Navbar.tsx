@@ -2,11 +2,13 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { PixelMark } from "./PixelMark";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 40);
@@ -19,19 +21,22 @@ export function Navbar() {
     return () => { document.body.style.overflow = ""; };
   }, [open]);
 
-  const links = [
-    { label: "Work",    href: "#work" },
-    { label: "About",   href: "#about" },
-    { label: "Contact", href: "#contact" },
-    { label: "CV",      href: "/cv", isLink: true },
+  const mainLinks = [
+    { label: "Work",    href: "/work" },
+    { label: "About",   href: "/about" },
+    { label: "Contact", href: "/contact" },
+    { label: "CV",      href: "/cv" },
   ];
   const versions = [
     { label: "Editorial", href: "/v2" },
     { label: "Brutalist", href: "/v3" },
   ];
 
+  const isActive = (href: string) => pathname === href;
+
   return (
     <>
+      {/* h-16 = 64px */}
       <header
         className={`fixed top-0 inset-x-0 z-50 flex items-center justify-between h-16 px-5 md:px-10 transition-all duration-500 ${
           scrolled ? "backdrop-blur-xl bg-[#050505]/88 border-b border-white/[0.04]" : ""
@@ -45,33 +50,26 @@ export function Navbar() {
         </Link>
 
         <nav className="hidden md:flex items-center gap-7">
-          {links.map((l) =>
-            l.isLink ? (
-              <Link
-                key={l.label}
-                href={l.href}
-                className="text-[11px] tracking-[0.2em] uppercase text-dim hover:text-fg transition-colors font-light"
-                data-hover
-              >
-                {l.label}
-              </Link>
-            ) : (
-              <a
-                key={l.label}
-                href={l.href}
-                className="text-[11px] tracking-[0.2em] uppercase text-muted hover:text-fg transition-colors font-light"
-                data-hover
-              >
-                {l.label}
-              </a>
-            )
-          )}
+          {mainLinks.map((l) => (
+            <Link
+              key={l.label}
+              href={l.href}
+              className={`text-[11px] tracking-[0.2em] uppercase font-light transition-colors ${
+                isActive(l.href) ? "text-fg" : "text-muted hover:text-fg"
+              }`}
+              data-hover
+            >
+              {l.label}
+            </Link>
+          ))}
           <span className="w-px h-3 bg-dim" />
           {versions.map((v) => (
             <Link
               key={v.label}
               href={v.href}
-              className="text-[11px] tracking-[0.2em] uppercase text-dim hover:text-fg transition-colors font-light"
+              className={`text-[11px] tracking-[0.2em] uppercase font-light transition-colors ${
+                isActive(v.href) ? "text-fg" : "text-dim hover:text-fg"
+              }`}
               data-hover
             >
               {v.label}
@@ -89,36 +87,27 @@ export function Navbar() {
         </button>
       </header>
 
+      {/* Mobile fullscreen */}
       <div
         className={`fixed inset-0 z-40 bg-bg flex flex-col items-center justify-center transition-all duration-500 ${
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
         <PixelMark variant="ap" inverted className="mb-14 opacity-25" />
-        <nav className="flex flex-col items-center gap-8">
-          {[...links].map((l, i) =>
-            l.isLink ? (
-              <Link
-                key={l.label}
-                href={l.href}
-                onClick={() => setOpen(false)}
-                className="text-[clamp(1.8rem,6vw,3rem)] font-extralight tracking-[-0.02em] hover:opacity-40 transition-all text-muted"
-                style={{ transitionDelay: open ? `${i * 70}ms` : "0ms" }}
-              >
-                {l.label}
-              </Link>
-            ) : (
-              <a
-                key={l.label}
-                href={l.href}
-                onClick={() => setOpen(false)}
-                className="text-[clamp(2.2rem,8vw,4rem)] font-extralight tracking-[-0.02em] hover:opacity-40 transition-all"
-                style={{ transitionDelay: open ? `${i * 70}ms` : "0ms" }}
-              >
-                {l.label}
-              </a>
-            )
-          )}
+        <nav className="flex flex-col items-center gap-7">
+          {mainLinks.map((l, i) => (
+            <Link
+              key={l.label}
+              href={l.href}
+              onClick={() => setOpen(false)}
+              className={`text-[clamp(2rem,8vw,4rem)] font-extralight tracking-[-0.02em] hover:opacity-40 transition-all ${
+                isActive(l.href) ? "opacity-100" : "opacity-70"
+              }`}
+              style={{ transitionDelay: open ? `${i * 70}ms` : "0ms" }}
+            >
+              {l.label}
+            </Link>
+          ))}
           <div className="w-8 h-px bg-dim my-5" />
           <p className="text-[10px] tracking-[0.3em] uppercase text-dim mb-2">Style</p>
           {versions.map((v) => (

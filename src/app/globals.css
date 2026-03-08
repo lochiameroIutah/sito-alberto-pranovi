@@ -159,24 +159,23 @@ body {
   transform: scale(1.05);
 }
 
-/* Gradient overlay from bottom for text legibility */
+/* Gradient overlay from bottom for text legibility — light touch */
 .img-wrap::after {
   content: '';
   position: absolute;
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(0,0,0,0.85) 0%,
-    rgba(0,0,0,0.45) 35%,
-    rgba(0,0,0,0.08) 65%,
-    transparent 100%
+    rgba(0,0,0,0.62) 0%,
+    rgba(0,0,0,0.18) 38%,
+    transparent 65%
   );
   transition: opacity 0.5s ease;
   pointer-events: none;
 }
 
 .img-wrap:hover::after {
-  opacity: 0.9;
+  opacity: 0.85;
 }
 
 /* Arrow indicator in card corner */

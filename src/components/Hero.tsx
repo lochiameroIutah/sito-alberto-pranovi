@@ -58,12 +58,12 @@ export function Hero() {
         {slideshowImages.map((img, i) => (
           <div
             key={img.src}
-            className="absolute inset-0 transition-all duration-1000"
+            className="absolute inset-0"
             style={{
               opacity:    i === activeIdx ? 1 : 0,
-              filter:     `blur(${i === activeIdx ? 24 : 32}px) brightness(0.18) saturate(0.3)`,
-              transform:  `translateX(${i === activeIdx ? "0%" : i === prevIdx ? "-4%" : "4%"})`,
-              transition: "opacity 1.2s cubic-bezier(0.16,1,0.3,1), filter 1.4s ease, transform 1.4s cubic-bezier(0.16,1,0.3,1)",
+              filter:     `brightness(0.28) saturate(0.55)`,
+              transform:  `translateX(${i === activeIdx ? "0%" : i === prevIdx ? "-4%" : "4%"}) scale(${i === activeIdx ? 1 : 1.03})`,
+              transition: "opacity 1.2s cubic-bezier(0.16,1,0.3,1), transform 1.6s cubic-bezier(0.16,1,0.3,1)",
             }}
           >
             <Image
@@ -150,7 +150,7 @@ export function Hero() {
             ))}
           </div>
           <a
-            href="#work"
+            href="/work"
             className="flex items-center gap-2.5 text-[10px] tracking-[0.22em] uppercase text-dim font-light hover:text-fg transition-colors group"
             data-hover
           >

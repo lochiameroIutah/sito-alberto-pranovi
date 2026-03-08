@@ -19,10 +19,8 @@ export function ProjectsGrid() {
 
   return (
     <section
-      id="work"
       ref={ref}
       className="py-32 md:py-52 px-5 md:px-10"
-      style={{ scrollMarginTop: "64px" }}
     >
       <div className="flex items-baseline justify-between mb-16 md:mb-28">
         <h2 className="reveal-up text-[11px] tracking-[0.25em] uppercase text-muted font-light">
