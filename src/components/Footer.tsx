@@ -66,7 +66,7 @@ export function Footer() {
 
           <div className="flex items-center gap-5 mt-8 md:mt-0">
             <PixelMark variant="ap" inverted className="opacity-15" />
-            <p className="text-[10px] tracking-[0.2em] text-dim/40 font-light">
+            <p className="text-[10px] tracking-[0.2em] text-dim/70 font-light">
               &copy; {new Date().getFullYear()} Alberto Pranovi
             </p>
           </div>

@@ -24,9 +24,9 @@ function SoftwareBadge({ name, abbr, bg }: { name: string; abbr: string; bg: str
         className="w-10 h-10 flex items-center justify-center rounded-[3px] border border-white/[0.08]"
         style={{ background: bg }}
       >
-        <span className="text-[11px] font-bold tracking-wider text-white/70">{abbr}</span>
+        <span className="text-[11px] font-bold tracking-wider text-white/85">{abbr}</span>
       </div>
-      <span className="text-[9px] tracking-[0.12em] uppercase text-white/30 font-light">{name}</span>
+      <span className="text-[9px] tracking-[0.12em] uppercase text-white/90 font-light">{name}</span>
     </div>
   );
 }
@@ -35,7 +35,7 @@ function GradientLine({ className = "" }: { className?: string }) {
   return (
     <div
       className={`h-px w-full ${className}`}
-      style={{ background: "linear-gradient(to right, transparent, #3a3a3a 40%, #141414 100%)" }}
+      style={{ background: "linear-gradient(to right, transparent, #5a5a5a 40%, #2a2a2a 100%)" }}
     />
   );
 }
@@ -76,7 +76,7 @@ export default function CVPage() {
             <h1 className="text-2xl font-extralight tracking-[-0.02em] leading-tight uppercase">
               Alberto<br />Pranovi
             </h1>
-            <p className="text-[10px] tracking-[0.22em] uppercase text-white/40 font-light mt-2">
+            <p className="text-[10px] tracking-[0.22em] uppercase text-white/65 font-light mt-2">
               Visual &amp; Product Designer
             </p>
           </div>
@@ -86,31 +86,31 @@ export default function CVPage() {
           {/* Contacts */}
           <div className="reveal-up space-y-6 flex-1">
             <div>
-              <p className="text-[9px] tracking-[0.3em] uppercase text-white/25 font-light mb-1.5">Phone</p>
-              <a href="tel:+393463871076" className="text-xs font-light text-white/55 hover:text-white transition-colors">
+              <p className="text-[9px] tracking-[0.3em] uppercase text-white/90 font-light mb-1.5">Phone</p>
+              <a href="tel:+393463871076" className="text-xs font-light text-white/90 hover:text-white transition-colors">
                 +39 346 387 1076
               </a>
             </div>
             <div>
-              <p className="text-[9px] tracking-[0.3em] uppercase text-white/25 font-light mb-1.5">Mail</p>
-              <a href="mailto:alberto.pranovi96@gmail.com" className="text-xs font-light text-white/55 hover:text-white transition-colors break-all">
+              <p className="text-[9px] tracking-[0.3em] uppercase text-white/90 font-light mb-1.5">Mail</p>
+              <a href="mailto:alberto.pranovi96@gmail.com" className="text-xs font-light text-white/90 hover:text-white transition-colors break-all">
                 alberto.pranovi96@gmail.com
               </a>
             </div>
             <div>
-              <p className="text-[9px] tracking-[0.3em] uppercase text-white/25 font-light mb-1.5">Social</p>
+              <p className="text-[9px] tracking-[0.3em] uppercase text-white/90 font-light mb-1.5">Social</p>
               <div className="space-y-2">
-                <a href="https://www.linkedin.com/in/alberto-pranovi-132152162/" target="_blank" rel="noopener noreferrer" className="block text-xs font-light text-white/55 hover:text-white transition-colors">
+                <a href="https://www.linkedin.com/in/alberto-pranovi-132152162/" target="_blank" rel="noopener noreferrer" className="block text-xs font-light text-white/90 hover:text-white transition-colors">
                   LinkedIn ↗
                 </a>
-                <a href="https://www.instagram.com/apranovic/" target="_blank" rel="noopener noreferrer" className="block text-xs font-light text-white/55 hover:text-white transition-colors">
+                <a href="https://www.instagram.com/apranovic/" target="_blank" rel="noopener noreferrer" className="block text-xs font-light text-white/90 hover:text-white transition-colors">
                   Instagram ↗
                 </a>
               </div>
             </div>
             <div>
-              <p className="text-[9px] tracking-[0.3em] uppercase text-white/25 font-light mb-1.5">Portfolio</p>
-              <a href="/PORTFOLIO 2024.pdf" target="_blank" rel="noopener noreferrer" className="block text-xs font-light text-white/55 hover:text-white transition-colors">
+              <p className="text-[9px] tracking-[0.3em] uppercase text-white/90 font-light mb-1.5">Portfolio</p>
+              <a href="/PORTFOLIO 2024.pdf" target="_blank" rel="noopener noreferrer" className="block text-xs font-light text-white/90 hover:text-white transition-colors">
                 PDF Download ↗
               </a>
             </div>
@@ -127,12 +127,12 @@ export default function CVPage() {
 
           {/* PDF link row */}
           <div className="reveal-up flex items-center justify-between mb-14 md:mb-20">
-            <p className="text-[11px] tracking-[0.25em] uppercase text-white/35 font-light">
+            <p className="text-[11px] tracking-[0.25em] uppercase text-white/60 font-light">
               Curriculum Vitæ
             </p>
             <Link
               href="/"
-              className="text-[11px] tracking-[0.18em] uppercase text-white/35 hover:text-white/80 transition-colors font-light"
+              className="text-[11px] tracking-[0.18em] uppercase text-white/60 hover:text-white/90 transition-colors font-light"
             >
               ← Portfolio
             </Link>
@@ -140,14 +140,14 @@ export default function CVPage() {
 
           {/* ── ABOUT ── */}
           <section className="reveal-up mb-16 md:mb-24" aria-labelledby="cv-about">
-            <h2 id="cv-about" className="text-[10px] tracking-[0.32em] uppercase text-white/35 font-light mb-5">
+            <h2 id="cv-about" className="text-[10px] tracking-[0.32em] uppercase text-white/60 font-light mb-5">
               About
             </h2>
             <GradientLine className="mb-8" />
-            <p className="text-sm md:text-[15px] font-extralight leading-[1.9] text-white/70 max-w-2xl">
+            <p className="text-sm md:text-[15px] font-extralight leading-[1.9] text-white/85 max-w-2xl">
               I was born in Padua in 1996 and grew up with a deep passion for clothing, street art and music,
               always searching for a means of expression. In 2018, I started my journey at the{" "}
-              <em className="not-italic text-white/90">Scuola Italiana Design</em>, where I gained the skills
+              <em className="not-italic text-white">Scuola Italiana Design</em>, where I gained the skills
               and tools necessary to bring an idea to life. I developed a deep interest for the communicative
               aspects of the product — whether graphic design or physical objects, I am fascinated by how
               these convey emotions and represent values.
@@ -159,7 +159,7 @@ export default function CVPage() {
 
             {/* EDUCATION */}
             <section className="reveal-up" aria-labelledby="cv-education">
-              <h2 id="cv-education" className="text-[10px] tracking-[0.32em] uppercase text-white/35 font-light mb-5">
+              <h2 id="cv-education" className="text-[10px] tracking-[0.32em] uppercase text-white/60 font-light mb-5">
                 Education
               </h2>
               <GradientLine className="mb-8" />
@@ -182,9 +182,9 @@ export default function CVPage() {
                   },
                 ].map((e) => (
                   <div key={e.period}>
-                    <p className="text-[9px] tracking-[0.18em] text-white/25 font-light mb-1.5">{e.period}</p>
-                    <p className="text-xs font-normal text-white/80 leading-snug mb-1.5">{e.title}</p>
-                    <p className="text-[11px] font-extralight text-white/45 leading-relaxed">{e.desc}</p>
+                    <p className="text-[9px] tracking-[0.18em] text-white/90 font-light mb-1.5">{e.period}</p>
+                    <p className="text-xs font-normal text-white/90 leading-snug mb-1.5">{e.title}</p>
+                    <p className="text-[11px] font-extralight text-white/70 leading-relaxed">{e.desc}</p>
                   </div>
                 ))}
               </div>
@@ -192,7 +192,7 @@ export default function CVPage() {
 
             {/* EXPERIENCE */}
             <section className="reveal-up" aria-labelledby="cv-experience">
-              <h2 id="cv-experience" className="text-[10px] tracking-[0.32em] uppercase text-white/35 font-light mb-5">
+              <h2 id="cv-experience" className="text-[10px] tracking-[0.32em] uppercase text-white/60 font-light mb-5">
                 Experience
               </h2>
               <GradientLine className="mb-8" />
@@ -215,9 +215,9 @@ export default function CVPage() {
                   },
                 ].map((e) => (
                   <div key={e.period}>
-                    <p className="text-[9px] tracking-[0.18em] text-white/25 font-light mb-1.5">{e.period}</p>
-                    <p className="text-xs font-normal text-white/80 leading-snug mb-1.5">{e.title}</p>
-                    <p className="text-[11px] font-extralight text-white/45 leading-relaxed">{e.desc}</p>
+                    <p className="text-[9px] tracking-[0.18em] text-white/90 font-light mb-1.5">{e.period}</p>
+                    <p className="text-xs font-normal text-white/90 leading-snug mb-1.5">{e.title}</p>
+                    <p className="text-[11px] font-extralight text-white/70 leading-relaxed">{e.desc}</p>
                   </div>
                 ))}
               </div>
@@ -225,7 +225,7 @@ export default function CVPage() {
 
             {/* SKILLS */}
             <section className="reveal-up" aria-labelledby="cv-skills">
-              <h2 id="cv-skills" className="text-[10px] tracking-[0.32em] uppercase text-white/35 font-light mb-5">
+              <h2 id="cv-skills" className="text-[10px] tracking-[0.32em] uppercase text-white/60 font-light mb-5">
                 Skills
               </h2>
               <GradientLine className="mb-8" />
@@ -241,8 +241,8 @@ export default function CVPage() {
                   "Critical project analysis",
                   "Task prioritization",
                 ].map((s) => (
-                  <li key={s} className="text-[11px] font-extralight text-white/50 leading-relaxed flex gap-2.5 items-start">
-                    <span className="block w-1 h-1 rounded-full bg-white/20 flex-shrink-0 mt-1.5" aria-hidden="true" />
+                  <li key={s} className="text-[11px] font-extralight text-white/75 leading-relaxed flex gap-2.5 items-start">
+                    <span className="block w-1 h-1 rounded-full bg-white/40 flex-shrink-0 mt-1.5" aria-hidden="true" />
                     {s}
                   </li>
                 ))}
@@ -252,7 +252,7 @@ export default function CVPage() {
             {/* SOFTWARE + LANGUAGES */}
             <section className="reveal-up space-y-10" aria-labelledby="cv-software">
               <div>
-                <h2 id="cv-software" className="text-[10px] tracking-[0.32em] uppercase text-white/35 font-light mb-5">
+                <h2 id="cv-software" className="text-[10px] tracking-[0.32em] uppercase text-white/60 font-light mb-5">
                   Software
                 </h2>
                 <GradientLine className="mb-8" />
@@ -264,7 +264,7 @@ export default function CVPage() {
               </div>
 
               <div>
-                <h2 className="text-[10px] tracking-[0.32em] uppercase text-white/35 font-light mb-5">
+                <h2 className="text-[10px] tracking-[0.32em] uppercase text-white/60 font-light mb-5">
                   Languages
                 </h2>
                 <GradientLine className="mb-8" />
@@ -274,8 +274,8 @@ export default function CVPage() {
                     { lang: "English", level: "Conversational" },
                   ].map((l) => (
                     <div key={l.lang}>
-                      <p className="text-xs font-normal text-white/80 uppercase tracking-[0.1em]">{l.lang}</p>
-                      <p className="text-[11px] font-extralight text-white/45 mt-0.5">{l.level}</p>
+                      <p className="text-xs font-normal text-white/90 uppercase tracking-[0.1em]">{l.lang}</p>
+                      <p className="text-[11px] font-extralight text-white/70 mt-0.5">{l.level}</p>
                     </div>
                   ))}
                 </div>
@@ -290,12 +290,12 @@ export default function CVPage() {
 
           {/* Bottom row */}
           <div className="mt-24 md:mt-32 pt-6 border-t border-white/[0.04] flex items-center justify-between">
-            <p className="text-[10px] tracking-[0.2em] text-white/20 font-light uppercase">
+            <p className="text-[10px] tracking-[0.2em] text-white/50 font-light uppercase">
               &copy; {new Date().getFullYear()} Alberto Pranovi
             </p>
             <Link
               href="/"
-              className="text-[10px] tracking-[0.2em] text-white/25 hover:text-white/70 transition-colors font-light uppercase"
+              className="text-[10px] tracking-[0.2em] text-white/90 hover:text-white/85 transition-colors font-light uppercase"
             >
               ← Portfolio
             </Link>

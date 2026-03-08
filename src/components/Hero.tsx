@@ -97,7 +97,7 @@ export function Hero() {
       <div className="absolute bottom-[calc(100%-64px+50svh)] left-5 md:left-10 z-10 pointer-events-none hidden md:block">
         <p
           key={activeIdx}
-          className="text-[10px] tracking-[0.25em] uppercase text-muted/50 font-light"
+          className="text-[10px] tracking-[0.25em] uppercase text-muted/80 font-light"
           style={{ animation: "fadeIn 0.6s ease" }}
         >
           {String(activeIdx + 1).padStart(2, "0")} / {slideshowImages[activeIdx].label}
@@ -142,8 +142,8 @@ export function Hero() {
                 onClick={() => { setPrevIdx(activeIdx); setActiveIdx(i); }}
                 className={`block rounded-full transition-all duration-500 ${
                   i === activeIdx
-                    ? "w-4 h-1 bg-white/60"
-                    : "w-1 h-1 bg-white/20 hover:bg-white/40"
+                    ? "w-4 h-1 bg-white/80"
+                    : "w-1 h-1 bg-white/40 hover:bg-white/60"
                 }`}
                 aria-label={`Show ${slideshowImages[i].label}`}
               />

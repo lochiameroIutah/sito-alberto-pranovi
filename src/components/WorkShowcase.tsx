@@ -93,10 +93,10 @@ export function WorkShowcase() {
 
       {/* ── Section header ─────────────────────────────────────────────── */}
       <div className="flex items-baseline justify-between mb-12 md:mb-16">
-        <h1 className="reveal-up text-[11px] tracking-[0.25em] uppercase text-white/35 font-light">
+        <h1 className="reveal-up text-[11px] tracking-[0.25em] uppercase text-white/60 font-light">
           Selected Work
         </h1>
-        <span className="reveal-up text-[11px] tracking-[0.2em] text-white/20 font-light">
+        <span className="reveal-up text-[11px] tracking-[0.2em] text-white/50 font-light">
           {String(projects.length).padStart(2, "0")}
         </span>
       </div>
@@ -121,7 +121,7 @@ export function WorkShowcase() {
               />
 
               {/* Index */}
-              <span className="relative text-[11px] tracking-[0.2em] text-white/20 font-light w-8 flex-shrink-0 tabular-nums">
+              <span className="relative text-[11px] tracking-[0.2em] text-white/50 font-light w-8 flex-shrink-0 tabular-nums">
                 {String(i + 1).padStart(2, "0")}
               </span>
 
@@ -140,10 +140,10 @@ export function WorkShowcase() {
 
               {/* Meta — desktop */}
               <div className="relative hidden md:flex items-center gap-10 flex-shrink-0">
-                <span className="text-[11px] tracking-[0.2em] uppercase text-white/30 font-light">
+                <span className="text-[11px] tracking-[0.2em] uppercase text-white/55 font-light">
                   {p.category}
                 </span>
-                <span className="text-[11px] tracking-[0.15em] text-white/18 font-light tabular-nums">
+                <span className="text-[11px] tracking-[0.15em] text-white/45 font-light tabular-nums">
                   {p.year}
                 </span>
               </div>
@@ -174,7 +174,7 @@ export function WorkShowcase() {
 
             {/* Hover underline */}
             <div
-              className="h-px bg-white/12 origin-left transition-transform duration-500"
+              className="h-px bg-white/25 origin-left transition-transform duration-500"
               style={{
                 transform: `scaleX(${hoveredIdx === i ? 1 : 0})`,
               }}

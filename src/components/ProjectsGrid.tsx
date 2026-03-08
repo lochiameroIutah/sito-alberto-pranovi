@@ -59,13 +59,13 @@ export function ProjectsGrid() {
               <div className="absolute inset-0 z-20 flex flex-col justify-end p-6 md:p-10">
                 <div className="flex items-end justify-between gap-4">
                   <div>
-                    <p className="text-[10px] tracking-[0.22em] uppercase text-white/50 mb-2.5 font-light">
+                    <p className="text-[10px] tracking-[0.22em] uppercase text-white/75 mb-2.5 font-light">
                       {p.category}
                     </p>
                     <h3 className="text-xl md:text-2xl lg:text-[1.75rem] font-extralight tracking-[-0.02em] leading-tight">
                       {p.title}
                     </h3>
-                    <p className="text-xs font-extralight text-white/45 mt-2 hidden md:block">
+                    <p className="text-xs font-extralight text-white/70 mt-2 hidden md:block">
                       {p.subtitle}
                     </p>
                   </div>
@@ -77,7 +77,7 @@ export function ProjectsGrid() {
                       inverted
                       className="opacity-40 group-hover:opacity-80 transition-opacity duration-500"
                     />
-                    <span className="text-[10px] tracking-[0.2em] text-white/30 font-light">
+                    <span className="text-[10px] tracking-[0.2em] text-white/55 font-light">
                       {p.year}
                     </span>
                   </div>

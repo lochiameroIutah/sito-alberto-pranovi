@@ -49,7 +49,7 @@ export function Navbar() {
         {/* Brand */}
         <Link href="/" className="flex items-center gap-3 group">
           <PixelMark variant="ap" inverted className="opacity-70 group-hover:opacity-100 transition-opacity" />
-          <span className="text-[12px] tracking-[0.22em] uppercase font-light text-white/55 group-hover:text-white/90 transition-colors">
+          <span className="text-[12px] tracking-[0.22em] uppercase font-light text-white/80 group-hover:text-white transition-colors">
             A. Pranovi
           </span>
         </Link>
@@ -63,7 +63,7 @@ export function Navbar() {
               className={`text-[12px] tracking-[0.16em] uppercase font-light transition-colors duration-200 ${
                 isActive(l.href)
                   ? "text-white"
-                  : "text-white/45 hover:text-white/85"
+                  : "text-white/70 hover:text-white"
               }`}
               data-hover
             >
@@ -100,7 +100,7 @@ export function Navbar() {
               href={l.href}
               onClick={() => setOpen(false)}
               className={`text-[clamp(2.2rem,9vw,4.5rem)] font-extralight tracking-[-0.025em] transition-all duration-300 ${
-                isActive(l.href) ? "text-white" : "text-white/55 hover:text-white/90"
+                isActive(l.href) ? "text-white" : "text-white/75 hover:text-white"
               }`}
               style={{ transitionDelay: open ? `${i * 65}ms` : "0ms" }}
             >
@@ -108,7 +108,7 @@ export function Navbar() {
             </Link>
           ))}
         </nav>
-        <p className="absolute bottom-8 text-[10px] tracking-[0.28em] uppercase text-white/15 font-light">
+        <p className="absolute bottom-8 text-[10px] tracking-[0.28em] uppercase text-white/40 font-light">
           Alberto Pranovi — Padua, 1996
         </p>
       </div>
